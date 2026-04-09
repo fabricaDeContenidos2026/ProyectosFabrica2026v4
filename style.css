@@ -1,0 +1,105 @@
+
+
+        /* ========= CONFIGURACIÓN BASE ========= */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0; padding: 0;
+            background: linear-gradient(135deg, #1a4d10, #001a2e, #002d40);
+            background-attachment: fixed;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ========= HEADER ========= */
+        header {
+            background: rgba(9, 64, 116, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 25px 20px;
+            border-bottom: 3px solid #84BD00;
+            display: flex; flex-direction: column; align-items: center; gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        header img { height: 90px; filter: drop-shadow(0 0 10px rgba(132, 189, 0, 0.3)); }
+
+        .header-links { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+        .header-links a {
+            padding: 8px 18px; background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(132, 189, 0, 0.4); border-radius: 20px;
+            text-decoration: none; color: #eee; font-size: 14px; font-weight: 500;
+            display: flex; align-items: center; gap: 8px; transition: 0.3s;
+        }
+        .header-links a:hover { background: #84BD00; color: #001a2e; transform: translateY(-2px); }
+
+        /* ========= BOTÓN Y MODAL ========= */
+        .proyectos-container { padding: 30px 20px; text-align: center; }
+        .btn-open {
+            padding: 14px 35px; background: #00eaff; border: none; color: #00314d;
+            font-size: 16px; font-weight: 800; border-radius: 50px; cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 234, 255, 0.3); transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .btn-open:hover { transform: scale(1.05); background: #ffffff; }
+
+        .modal {
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0; 
+            width: 100%; height: 100%; background: rgba(0, 10, 20, 0.85);
+            backdrop-filter: blur(12px); justify-content: center; align-items: center;
+        }
+        .modal-content {
+            width: 90%; max-width: 480px; background: rgba(0, 26, 46, 0.95);
+            padding: 30px; border-radius: 25px; border: 1px solid rgba(0, 234, 255, 0.4);
+            max-height: 85vh; overflow-y: auto; position: relative;
+        }
+
+        .categoria-label {
+            font-size: 11px; color: #84BD00; text-transform: uppercase;
+            letter-spacing: 2px; margin: 20px 0 10px; font-weight: bold;
+            display: block; border-bottom: 1px solid rgba(132, 189, 0, 0.2); padding-bottom: 5px;
+        }
+
+        .proyecto-item {
+            padding: 14px 20px; margin: 8px 0; background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px; cursor: pointer; display: flex; align-items: center;
+            gap: 15px; transition: 0.3s;
+        }
+        .proyecto-item:hover { background: rgba(132, 189, 0, 0.15); border-left: 4px solid #84BD00; }
+        .sub-item { margin-left: 25px; font-size: 0.9em; opacity: 0.85; border-left: 1px solid rgba(132, 189, 0, 0.3); }
+
+        /* ========= VISOR Y LOADER ========= */
+        .iframe-container {
+            width: 95%; max-width: 1200px; margin: 0 auto 60px;
+            background: #000; border-radius: 20px; overflow: hidden; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            position: relative; 
+            aspect-ratio: 16/9; 
+            transition: all 0.5s ease;
+        }
+
+        #loader-overlay, #welcome-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: #001a2e; z-index: 100; display: flex;
+            flex-direction: column; justify-content: center; align-items: center;
+        }
+        #loader-overlay { display: none; }
+
+        .static-logo { width: 180px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.1)); }
+        .loader-logo {
+            width: 120px;
+            animation: pulse-logo 1.5s infinite ease-in-out;
+            filter: drop-shadow(0 0 15px rgba(132, 189, 0, 0.6));
+        }
+
+        @keyframes pulse-logo {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+
+        .text-hint { margin-top: 20px; color: #84BD00; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
+
+        iframe { width: 100%; height: 100%; border: none; display: block; opacity: 0; transition: opacity 0.5s; }
+
+        footer {
+            background: #000b16; padding: 40px; text-align: center;
+            border-top: 1px solid rgba(132, 189, 0, 0.2);
+        }
+  

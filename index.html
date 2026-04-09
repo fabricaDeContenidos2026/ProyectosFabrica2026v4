@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos Interactivos | CUN</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+
+<header>
+    <img src="img/logo.png" alt="Logo CUN" />
+    <div class="header-links">
+        <a href="https://carnet.cun.edu.co/#/inicio" target="_blank"><i class="fa-solid fa-id-card"></i> Estudiantes</a>
+        <a href="https://carnet.cun.edu.co/#/inicio" target="_blank"><i class="fa-solid fa-people-group"></i> Colaboradores</a>
+    </div>
+</header>
+
+<div class="proyectos-container">
+    <button class="btn-open" onclick="abrirModal()">📂 Biblioteca de Proyectos</button>
+</div>
+
+<div id="modalProyectos" class="modal">
+    <div class="modal-content">
+        <span onclick="cerrarModal()" style="float:right; cursor:pointer; color:#ff4b4b; font-size:24px;">&times;</span>
+        <h2 style="text-align:center;">BIBLIOTECA</h2>
+        
+        <span class="categoria-label">Contenido Principal</span>
+        <div id="listaProyectos"></div>
+
+        <span class="categoria-label">Productos Educativos</span>
+        
+        <div class="proyecto-item" onclick="cargarUrl('https://online.fliphtml5.com/mjlzw/REVISTA-SUBA-AVANZA/', 'Revista Suba Avanza')">
+            <i class="fa-solid fa-book-bookmark"></i> Revista Suba Avanza
+        </div>
+
+        <div class="proyecto-item" onclick="cargarUrl('https://online.fliphtml5.com/dkmsl/rrpw/', 'Revista')">
+            <i class="fa-solid fa-book-open"></i> Revista Diseño Gráfico
+        </div>
+
+        <div class="proyecto-item sub-item" onclick="cargarUrl('https://online.fliphtml5.com/mjlzw/eptu/#p=1', 'Glosario Diseño')">
+            <i class="fa-solid fa-circle-info"></i> Glosario
+        </div>
+
+        <div class="proyecto-item sub-item" onclick="cargarUrl('https://embed.figma.com/proto/RueRB8Bfa0kQbWJWDuuHXT/Sin-t%C3%ADtulo?node-id=1-2&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&embed-host=share', 'Fichas')">
+            <i class="fa-solid fa-file-invoice"></i> Fichas
+        </div>
+
+        <div class="proyecto-item" onclick="cargarUrl('https://online.fliphtml5.com/mjlzw/Plantilla-Medios-Audiovisuales/', 'Plantilla Medios Audiovisuales')">
+            <i class="fa-solid fa-book"></i> Revista Medios Audiovisuales
+        </div>
+
+        <div class="proyecto-item sub-item" onclick="cargarUrl('https://embed.figma.com/proto/abUWlDqYJZcANkjHpHPO2O/Sin-t%C3%ADtulo--Copia-?page-id=0%3A1&node-id=1-2&viewport=506%2C382%2C0.5&scaling=min-zoom&content-scaling=fixed&embed-host=share', 'Fichas Medios Audiovisuales')">
+            <i class="fa-solid fa-film"></i> Fichas Medios Audiovisuales
+        </div>
+
+        <div class="proyecto-item sub-item" onclick="cargarUrl('https://embed.figma.com/proto/IResacCDP7gCQsrHra5K6i/Sin-t%C3%ADtulo--Copia-?page-id=0%3A1&node-id=1-2&viewport=331%2C458%2C0.13&scaling=scale-down&content-scaling=fixed&embed-host=share', 'Glosario Medios Audiovisuales')">
+            <i class="fa-solid fa-circle-info"></i> Glosario Medios Audiovisuales
+        </div>
+
+        <div class="proyecto-item" onclick="cargarUrl('https://indd.adobe.com/embed/95e236ca-0217-4b76-a386-d514e7e4877e?startpage=1&allowFullscreen=true', 'Revista Ingeniería en Sistemas')">
+            <i class="fa-solid fa-microchip"></i> Revista Ingeniería en Sistemas
+        </div>
+
+        <div class="proyecto-item sub-item" onclick="cargarUrl('https://embed.figma.com/proto/cqFXntIoEhSnMDvkHdCUIH/Sin-t%C3%ADtulo--Copia---Copia-?page-id=0%3A1&node-id=1-2&viewport=467%2C273%2C0.13&scaling=contain&content-scaling=fixed&embed-host=share', 'Plantilla Ingeniería en Sistemas')">
+            <i class="fa-solid fa-circle-info"></i> Glosario Ingeniería en Sistemas
+        </div>
+
+        <div class="proyecto-item" onclick="cargarUrl('https://indd.adobe.com/embed/8f7a1b8d-63f8-4410-88c4-500eb7b0fc77?startpage=1&allowFullscreen=true', 'Ingeniería Electrónica')">
+            <i class="fa-solid fa-microchip"></i> Revista Ingeniería Electrónica
+        </div>
+
+        <div class="proyecto-item sub-item" onclick="cargarUrl('https://online.fliphtml5.com/mjlzw/fvrt/', 'Glosario Ingeniería Electrónica')">
+            <i class="fa-solid fa-circle-info"></i> Glosario Ingeniería Electrónica
+        </div>
+
+        <div class="proyecto-item sub-item" onclick="cargarUrl('https://embed.figma.com/proto/t2VddKm6RtoFz2Doj6l9ch/fICAHS-ING-ELECTRONICA?node-id=22-26&viewport=383%2C412%2C0.5&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&embed-host=share', 'Fichas Ingeniería Electrónica')">
+            <i class="fa-solid fa-file-invoice"></i> Fichas Ingeniería Electrónica
+        </div>
+
+    </div>
+</div>
+
+<div class="iframe-container" id="mainContainer">
+    <div id="welcome-overlay">
+        <img src="img/logo.png" class="static-logo" alt="CUN">
+        <div class="text-hint">Selecciona un proyecto para comenzar</div>
+    </div>
+
+    <div id="loader-overlay">
+        <img src="img/logo.png" class="loader-logo" alt="Cargando">
+        <div class="text-hint">Cargando experiencia...</div>
+    </div>
+
+    <iframe id="visorFrame" src="" allowfullscreen="true"></iframe>
+</div>
+
+<footer>
+    <p style="font-size: 11px; opacity: 0.5;">&copy; 2026 CORPORACIÓN UNIFICADA NACIONAL DE EDUCACIÓN SUPERIOR</p>
+</footer>
+
+<script>
+    const proyectos = [
+        { nombre: "Fábrica de Contenido", url: "https://view.genially.com/6970da8da2ef09cea89fb3a8" },
+        { nombre: "CPlay", url: "https://embed.figma.com/proto/jFyBWV98C4BeH5V0mRnrZN/CPLAY---Archivo-parcial-guardado-6-3-2026?node-id=18-2&scaling=contain&content-scaling=fixed&page-id=0%3A1&embed-host=share" },
+        { nombre: "Bitácora", url: "https://view.genially.com/6972328f0508658631ae9ff3" },
+        { nombre: "Prácticas", url: "https://view.genially.com/697bd198faf51c6b1c542400/interactive-content" },
+        { nombre: "Interfax CUN-ULIM", url: "https://interfax-cun-ulim.vercel.app/" },
+        { nombre: "Saber PRO (DOJO)", url: "https://embed.figma.com/proto/qgRPheoib7P5QQa90gje5S/Dojo-TyT?page-id=0%3A1&node-id=1-265&viewport=1764%2C569%2C0.25&scaling=scale-down&content-scaling=fixed&embed-host=share" },
+        { nombre: "Prueba Canva", url: "https://www.canva.com/design/DAHFbiTmsoo/zUOemdQ3ucWByWbk7noP7Q/view?embed" }
+    ];
+
+    const lista = document.getElementById("listaProyectos");
+    const visor = document.getElementById("visorFrame");
+    const loader = document.getElementById("loader-overlay");
+    const welcome = document.getElementById("welcome-overlay");
+    const container = document.getElementById("mainContainer");
+
+    proyectos.forEach((p) => {
+        const item = document.createElement("div");
+        item.className = "proyecto-item";
+        item.innerHTML = `<i class="fa-solid fa-folder-open" style="color:#84BD00;"></i> ${p.nombre}`;
+        item.onclick = () => cargarUrl(p.url, p.nombre);
+        lista.appendChild(item);
+    });
+
+    function cargarUrl(url, nombre) {
+        cerrarModal();
+        welcome.style.display = "none";
+        loader.style.display = "flex";
+        visor.style.opacity = "0";
+
+        if (nombre === "CPlay") {
+            container.style.aspectRatio = "16 / 10"; 
+        } else if (nombre === "Prueba Canva") {
+            container.style.aspectRatio = "1 / 3"; 
+        } else {
+            container.style.aspectRatio = "16 / 9";
+        }
+
+        setTimeout(() => {
+            visor.src = url;
+            visor.onload = () => {
+                loader.style.display = "none";
+                visor.style.opacity = "1";
+            };
+        }, 1500); 
+    }
+
+    function abrirModal() { document.getElementById("modalProyectos").style.display = "flex"; }
+    function cerrarModal() { document.getElementById("modalProyectos").style.display = "none"; }
+
+    window.onclick = (e) => {
+        const modal = document.getElementById("modalProyectos");
+        if (e.target === modal) cerrarModal();
+    };
+</script>
+
+</body>
+</html>
